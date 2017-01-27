@@ -123,7 +123,7 @@ func (receiver {{.Name}}) String() string {
 		return "{{.Name}}NotLoaded()"
 	}
 
-	return fmt.Sprintf("{{.Name}}Some(%d)", receiver.value)
+	return fmt.Sprintf("{{.Name}}Some(%v)", receiver.value)
 }
 
 // THIS FILE IS GENERATED; DO NOT EDIT

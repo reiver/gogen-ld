@@ -57,7 +57,7 @@ func (receiver Nullable{{.Name}}) String() string {
 		return "Nullable{{.Name}}Null()"
 	}
 
-	return fmt.Sprintf("Nullable{{.Name}}Some(%d)", receiver.value)
+	return fmt.Sprintf("Nullable{{.Name}}Some(%v)", receiver.value)
 }
 
 // THIS FILE IS GENERATED; DO NOT EDIT
