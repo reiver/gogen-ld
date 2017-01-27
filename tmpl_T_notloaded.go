@@ -7,7 +7,7 @@ import (
 func init() {
 
 	driver := gendriver.SimpleDriver{
-		NamePattern: "{{.Name}}_notloaded_go",
+		NamePattern: "{{.Name}}_notloaded.go",
 		TextTemplate:
 `// DO NOT EDIT
 //
