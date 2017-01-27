@@ -32,6 +32,7 @@ package gendriver
 type Context struct {
 	Imports []string
 	Pkg       string
+	Self      string
 	Type      string
 	Name      string
 }

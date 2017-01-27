@@ -15,6 +15,7 @@ func main() {
 	var flags struct {
 		Imports string
 		Pkg     string
+		Self    string
 		Type    string
 		Name    string
 	}
@@ -22,6 +23,7 @@ func main() {
 	{
 		flag.StringVar(&flags.Imports, "imports", "",     "Extra imports. Ex: --imports=")
 		flag.StringVar(&flags.Pkg,     "pkg",     "main", "Package name. Ex: --pkg=main")
+		flag.StringVar(&flags.Self,    "self",    "",     "Package path of itself. Ex: --self=github.com/reiver/something")
 		flag.StringVar(&flags.Type,    "type",    "",     "Type. Ex: --type=int64")
 		flag.StringVar(&flags.Name,    "name",    "",     "Name of generated type. Ex: --name=Int64")
 
@@ -29,6 +31,10 @@ func main() {
 
 		if "" == flags.Name {
 			fmt.Fprintf(os.Stderr, "ERROR: \"name\" may not be empty.\n")
+			return
+		}
+		if "" == flags.Self {
+			fmt.Fprintf(os.Stderr, "ERROR: \"self\" may not be empty.\n")
 			return
 		}
 		if "" == flags.Type {
@@ -88,6 +94,7 @@ func main() {
 			Imports:    imports,
 			Pkg:  flags.Pkg,
 			Name: flags.Name,
+			Self: flags.Self,
 			Type: flags.Type,
 		})
 		if nil != err {
