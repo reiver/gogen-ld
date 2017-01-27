@@ -17,13 +17,31 @@ package {{.Pkg}}
 
 // THIS FILE IS GENERATED; DO NOT EDIT
 
+import (
 {{range .Imports}}
-import "{{.}}"
+	"{{.}}"
 {{end}}
+	"fmt"
+)
 
 // THIS FILE IS GENERATED; DO NOT EDIT
 
 type {{.Name}}Value {{.Type}}
+
+// THIS FILE IS GENERATED; DO NOT EDIT
+
+func (receiver {{.Name}}Value) String() string {
+	var casted interface{} = {{.Type}}(receiver)
+
+	switch t := casted.(type) {
+	case interface{ String()string }:
+		return t.String()
+	case {{.Type}}:
+		return fmt.Sprintf("%v", casted)
+	default:
+		return fmt.Sprintf("%v", casted)
+	}
+}
 
 // THIS FILE IS GENERATED; DO NOT EDIT
 
